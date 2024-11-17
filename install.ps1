@@ -31,7 +31,5 @@ Move-Item nvim $ENV:USERPROFILE\AppData\Local
 New-Item -Path $ENV:USERPROFILE\AppData\Local\ -Name Starship -ItemType Directory
 Move-Item My-pwsh\starship.toml $ENV:USERPROFILE\AppData\Local\Starship
 
-# Install my Personal Fastfetch Configuration
-New-Item -Path C:\ProgramData\ -Name fastfetch -ItemType Directory
-Move-Item My-pwsh\config.jsonc C:\ProgramData\fastfetch\
-Move-Item My-pwsh\settings.json
+# Install Tab Completion
+Install-Module PSFzf
