@@ -20,6 +20,7 @@ Set-Alias bash "C:\Program Files\Git\bin\bash.exe"
 Set-Alias vim nvim; Set-Alias vi nvim
 Remove-Alias cat; Function cat {bat --paging=never $args }
 Set-Alias Terminal wt
+Set-Alias powershell pwsh
 Function pwsh {pwsh --nologo}
 
 # Set Keybindings Here
