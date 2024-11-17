@@ -5,7 +5,7 @@ fastfetch
 Import-Module syntax-highlighting
 
 # Add Tab Completion
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
 
 # Set the Starship Config Directory and Start Starship
 $ENV:STARSHIP_CONFIG = "$ENV:USERPROFILE\AppData\Local\Starship\starship.toml"
