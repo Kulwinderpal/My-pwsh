@@ -1,5 +1,5 @@
 # Installation
-To Install my Personal Powershell Configuration Download [install.ps1](https://github.com/Kulwinderpal/My-pwsh/blob/main/install.ps1) Go to the Directory where you Installed it in powershell and then run
+To Install my Personal PowerShell Configuration Run the Following Command in a PowerShell Prompt
 ```
-Set-ExecutionPolicy Unrestricted; Import-Module install.ps1
+PowerShell -Command Set-ExecutionPolicy Unrestricted; Invoke-WebRequest -Uri https://raw.githubusercontent.com/Kulwinderpal/My-pwsh/main/install.ps1; Import-Module install.ps1
 ```
