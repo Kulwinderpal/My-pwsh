@@ -22,6 +22,34 @@ Remove-Alias cat; Function cat {bat --paging=never $args }
 Set-Alias Terminal wt
 Set-Alias powershell pwsh
 Function pwsh {pwsh --nologo}
+function touch {
+    param (
+        [string]$Path
+    )
+
+    if (Test-Path $Path) {
+        # Update the last write time
+        (Get-Item $Path).LastWriteTime = Get-Date
+    } else {
+        # Create the file if it doesn't exist
+        New-Item $Path -ItemType File
+    }
+}
+function killall {
+    param (
+        [string]$ProcessName
+    )
+
+    # Retrieve and stop all processes with the given name
+    Get-Process -Name $ProcessName -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+
+    # Check if any process was killed
+    if ($?) {
+        Write-Output "All instances of $ProcessName have been terminated."
+    } else {
+        Write-Output "No processes named $ProcessName were found or could be terminated."
+    }
+}
 
 # Set Keybindings Here
 Set-PSReadLineKeyHandler -Key Ctrl+d -ScriptBlock { [Environment]::Exit(0) }
