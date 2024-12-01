@@ -69,6 +69,21 @@ function ln {
         )
         New-Item -ItemType SymbolicLink -Path $LinkPath -Target $TargetPath -Force
 }
+function readlink
+{
+        param (
+                [string]$Path
+        )
+
+        try
+        {
+                $item = Get-Item -LiteralPath $Path
+                return $item.Target
+        } catch
+        {
+                Write-Error $_.Exception.Message
+        }
+}
 
 # Set Keybindings Here
 Set-PSReadLineKeyHandler -Key Ctrl+d -ScriptBlock { [Environment]::Exit(0) }
