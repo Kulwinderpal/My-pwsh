@@ -21,7 +21,19 @@ Set-Alias vim nvim; Set-Alias vi nvim
 Remove-Alias cat; Function cat {bat --paging=never $args }
 Set-Alias Terminal wt
 Set-Alias powershell pwsh
-Function pwsh {pwsh --nologo}
+if ( $PSVersionTable.PSVersion.Major -eq 7 )
+{
+        Function pwsh
+        {
+                pwsh --nologo
+ }
+} else
+{
+        Function powershell
+        {
+                powershell --nologo
+        }
+}
 function touch {
     param (
         [string]$Path
