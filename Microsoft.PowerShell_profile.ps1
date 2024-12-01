@@ -50,6 +50,13 @@ function killall {
         Write-Output "No processes named $ProcessName were found or could be terminated."
     }
 }
+function ln {
+        param (
+                [string]$LinkPath,
+                [string]$TargetPath
+        )
+        New-Item -ItemType SymbolicLink -Path $LinkPath -Target $TargetPath -Force
+}
 
 # Set Keybindings Here
 Set-PSReadLineKeyHandler -Key Ctrl+d -ScriptBlock { [Environment]::Exit(0) }
