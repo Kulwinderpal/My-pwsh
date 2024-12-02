@@ -84,6 +84,13 @@ function readlink
                 Write-Error $_.Exception.Message
         }
 }
+function chown
+{
+        param (
+                [string]$Path
+        )
+        takeown /f $Path /r # Take ownership of the directory and its contents recursively
+}
 
 # Set Keybindings Here
 Set-PSReadLineKeyHandler -Key Ctrl+d -ScriptBlock { [Environment]::Exit(0) }
