@@ -5,13 +5,13 @@ if ( Write-Output $PSVersionTable.PSVersion -ne 5 )
   winget install --id Microsoft.PowerShell --source winget
 }
 # Install winget Packages
-winget install sharkdp.bat junegunn.fzf BurntSushi.ripgrep.MSVC ajeetdsouza.zoxide Starship.Starship Git.Git Neovim.Neovim Fastfetch-cli.Fastfetch
+winget install sharkdp.bat junegunn.fzf BurntSushi.ripgrep.MSVC ajeetdsouza.zoxide Starship.Starship Git.Git Neovim.Neovim Fastfetch-cli.Fastfetch BrechtSanders.WinLibs
 
 # Install PSREADLINE
-Install-Module PSReadLine
+Install-Module PSReadLine -Force
 
 # Install Syntax Highlighting
-Install-Module syntax-highlighting
+Install-Module syntax-highlighting -Force
 
 # Clone my Personal Powershell Repo
 git clone https://github.com/Kulwinderpal/My-pwsh
@@ -31,11 +31,4 @@ New-Item -Path $ENV:USERPROFILE\AppData\Local\ -Name Starship -ItemType Director
 Move-Item My-pwsh\starship.toml $ENV:USERPROFILE\AppData\Local\Starship
 
 # Install Tab Completion
-Install-Module PSFzf
-
-# Install GCC
-$URL = "https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-gcc-14.2.0-2-any.pkg.tar.zst"
-Invoke-WebRequest -Uri $URL -OutFile .\
-New-Item -Path 'C:\Program Files\' -Name MinGW-W64 -ItemType Directory
-tar -xf ".\mingw-w64-x86_64-gcc-14.2.0-2-any.pkg.tar.zst" -C "C:\Program Files\MinGW-W64"
-Write-Output "$ENV:PATH += ';C:\Program Files\MinGW-W64\'" >> $PROFILE
+Install-Module PSFzf -Force
