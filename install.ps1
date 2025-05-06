@@ -1,6 +1,6 @@
 
 # Install Powershell 7
-if ( Write-Output $PSVersionTable.PSVersion -ne 5 )
+if ( Write-Output $PSVersionTable.PSVersion -ne 7 )
 {
   winget install --id Microsoft.PowerShell --source winget
 }
