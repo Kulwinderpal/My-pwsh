@@ -5,7 +5,7 @@ if ( Write-Output $PSVersionTable.PSVersion -ne 7 )
   winget install --id Microsoft.PowerShell --source winget
 }
 # Install winget Packages
-winget install sharkdp.bat junegunn.fzf BurntSushi.ripgrep.MSVC ajeetdsouza.zoxide Starship.Starship Git.Git Neovim.Neovim Fastfetch-cli.Fastfetch BrechtSanders.WinLibs
+winget install sharkdp.bat junegunn.fzf BurntSushi.ripgrep.MSVC ajeetdsouza.zoxide Starship.Starship Microsoft.Git Neovim.Neovim Fastfetch-cli.Fastfetch BrechtSanders.WinLibs
 
 # Install PSREADLINE
 Install-Module PSReadLine -Force
